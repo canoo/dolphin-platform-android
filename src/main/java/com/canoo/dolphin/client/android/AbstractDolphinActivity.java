@@ -16,6 +16,8 @@ public abstract class AbstractDolphinActivity<T> extends Activity {
 
     private final String controllerName;
 
+    private ClientContext clientContext;
+
     public AbstractDolphinActivity(final AndroidConfiguration androidConfiguration, final String controllerName) {
         this.androidConfiguration = androidConfiguration;
         this.controllerName = controllerName;
@@ -32,6 +34,8 @@ public abstract class AbstractDolphinActivity<T> extends Activity {
                     if (throwable != null) {
                         throw new RuntimeException("Can not create Connection for " + androidConfiguration.getServerEndpoint(), throwable);
                     }
+                    AbstractDolphinActivity.this.clientContext = clientContext;
+
                     clientContext.createController(controllerName).whenComplete(new BiConsumer<ControllerProxy<Object>, Throwable>() {
                         @Override
                         public void accept(ControllerProxy<Object> objectControllerProxy, Throwable throwable) {
@@ -59,7 +63,11 @@ public abstract class AbstractDolphinActivity<T> extends Activity {
         }
     }
 
-    protected void bla() {
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(clientContext != null) {
+            clientContext.disconnect();
+        }
     }
-
 }
