@@ -1,7 +1,7 @@
 <p align="right">
 <a href="http://www.canoo.com"><img src="http://www.guigarage.com/wordpress/wp-content/uploads/2016/08/canoo_support.png"/></a>
 </p>
-                                                                                                                               
+# Dolphin Platform Android client API [![Build Status](https://travis-ci.org/canoo/dolphin-platform-android.svg?branch=master)](https://travis-ci.org/canoo/dolphin-platform-android)                                                                                                                               
 
 This repository contains the Android client API for the Dolphin Platform. General information about the Dolphin Platform can be found [here](https://github.com/canoo/dolphin-platform).
 
