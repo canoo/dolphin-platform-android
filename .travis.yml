@@ -9,4 +9,4 @@ android:
     - build-tools-25.0.2
     - android-24
 
-script: ./gradlew connectedAndroidTest
+script: ./gradlew clean build
