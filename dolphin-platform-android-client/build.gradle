@@ -73,12 +73,10 @@ install {
             project {
                 packaging 'aar'
 
-                // Add your description here
                 name 'Dolphin Platform Android client API'
                 description = 'This is the Android client API for the Dolphin Platform.'
                 url project_website
 
-                // Set your license
                 licenses {
                     license {
                         name 'The Apache Software License, Version 2.0'
