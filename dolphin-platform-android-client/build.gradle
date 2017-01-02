@@ -120,6 +120,9 @@ artifacts {
     archives sourcesJar
 }
 
+if (!project.hasProperty('bintrayUsername')) ext.bintrayUsername = ''
+if (!project.hasProperty('bintrayApiKey')) ext.bintrayApiKey = ''
+
 bintray {
     user = project.bintrayUsername
     key = project.bintrayApiKey
