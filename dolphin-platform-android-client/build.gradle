@@ -17,6 +17,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
+apply plugin: 'license'
 
 repositories {
     mavenLocal()
@@ -67,6 +68,17 @@ dependencies {
     compile project.group + ':dolphin-platform-client:'+version
 }
 
+license {
+    header = rootProject.file('licence-header.txt')
+    strictCheck = true
+    ignoreFailures = true
+    mapping {
+        java = 'SLASHSTAR_STYLE'
+        xml = 'XML_STYLE'
+    }
+    ext.year = '2015-2017'
+}
+
 install {
     repositories.mavenInstaller {
         pom {
@@ -115,6 +127,7 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
     from javadoc.destinationDir
 }
+
 artifacts {
     archives javadocJar
     archives sourcesJar
