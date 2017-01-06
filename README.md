@@ -21,6 +21,8 @@ By doing so you can create enterprise application with a single server and sever
 
 For more information read the [documentation](https://canoo.github.io/dolphin-platform/) of the Dolphin Platform.
 
+## Issue Tracking
+Please use the issue tracking system of the [Dolphin Platform](https://github.com/canoo/dolphin-platform) to report any bug or feature request.
 
 ## License
 The project is released as open source under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
