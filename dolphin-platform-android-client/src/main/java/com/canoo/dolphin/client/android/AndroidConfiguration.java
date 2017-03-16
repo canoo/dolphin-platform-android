@@ -1,10 +1,10 @@
 package com.canoo.dolphin.client.android;
 
-
+import android.content.Context;
+import android.os.Handler;
 import com.canoo.dolphin.client.ClientConfiguration;
 
 import java.net.URL;
-import java.util.concurrent.Executors;
 
 public class AndroidConfiguration extends ClientConfiguration {
 
@@ -14,6 +14,14 @@ public class AndroidConfiguration extends ClientConfiguration {
      * @param serverEndpoint  the Dolphin Platform server url
      */
     public AndroidConfiguration(URL serverEndpoint) {
-        super(serverEndpoint, Executors.newCachedThreadPool());
+        super(serverEndpoint, new AndroidUiThreadHandler());
+    }
+
+    public AndroidConfiguration(URL serverEndpoint, Context context) {
+        super(serverEndpoint, new AndroidUiThreadHandler(context));
+    }
+
+    public AndroidConfiguration(URL serverEndpoint, Handler handler) {
+        super(serverEndpoint, new AndroidUiThreadHandler(handler));
     }
 }
