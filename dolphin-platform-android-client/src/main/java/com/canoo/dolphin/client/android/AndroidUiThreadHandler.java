@@ -3,10 +3,13 @@ package com.canoo.dolphin.client.android;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
-import com.canoo.dolphin.util.Assert;
-import org.opendolphin.core.client.comm.UiThreadHandler;
+import android.support.annotation.NonNull;
 
-public class AndroidUiThreadHandler implements UiThreadHandler {
+import com.canoo.dolphin.util.Assert;
+
+import java.util.concurrent.Executor;
+
+public class AndroidUiThreadHandler implements Executor {
 
     private final Handler handler;
 
@@ -24,7 +27,7 @@ public class AndroidUiThreadHandler implements UiThreadHandler {
     }
 
     @Override
-    public void executeInsideUiThread(Runnable runnable) {
+    public void execute(@NonNull Runnable runnable) {
         handler.post(runnable);
     }
 }
